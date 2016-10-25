@@ -124,14 +124,7 @@ inAppPurchase.restorePurchases = function () {
   return nativeCall('restorePurchases').then(function (res) {
     var arr = [];
     if (res && res.transactions) {
-      arr = res.transactions.map(function (val) {
-        return {
-          productId: val.productId,
-          date: val.date,
-          transactionId: val.transactionId,
-          state: val.transactionState
-        };
-      });
+      arr = res.transactions;
     }
     return arr;
   });
